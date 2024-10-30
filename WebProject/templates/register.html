@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
+    {% load static %}
     <meta charset="utf-8">
     <title>Rejestracja</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
   </head>
   <body>
     <div class="center">
@@ -42,9 +43,9 @@
         </div>
 
         <!-- <div class="pass">Forgot Password?</div> -->
-        <input type="submit" value="Register">
+        <input type="submit" value="Zrejestruj się">
         <div class="signup_link">
-          Already have an account? <a href="login.html">Login</a>
+          Czy masz już konto? <a href="login.html">Zaloguj się</a>
         </div>
       </form>
     </div>
