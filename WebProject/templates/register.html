@@ -1,54 +1,62 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
+<head>
     {% load static %}
     <meta charset="utf-8">
     <title>Rejestracja</title>
     <link rel="stylesheet" href="{% static 'style.css' %}">
-  </head>
-  <body>
-    <div class="center">
-      <h1>Rejestracja</h1>
+</head>
+<body>
+<div class="center">
+    <h1>Rejestracja</h1>
 
-      <form method="POST">
+    <form method="POST">
+
+        {% csrf_token %}
 
         <div class="txt_field">
-            <input type="text" required>
+            <input type="text" required name="first_name">
             <span></span>
             <label>Imię</label>
-          </div>
-
-          <div class="txt_field">
-            <input type="text" required>
-            <span></span>
-            <label>Nazwisko</label>
-          </div>
-
-        <div class="txt_field">
-          <input type="text" required>
-          <span></span>
-          <label>Nazwa użytkownika</label>
         </div>
 
         <div class="txt_field">
-            <input type="email" required>
+            <input type="text" required name="last_name">
             <span></span>
-            <label>Email</label>
-          </div>
+            <label>Nazwisko</label>
+        </div>
 
         <div class="txt_field">
-          <input type="password" required>
-          <span></span>
-          <label>Hasło</label>
+            <input type="text" required name="username">
+            <span></span>
+            <label>Nazwa użytkownika</label>
+        </div>
+
+        <div class="txt_field">
+            <input type="email" required name="email">
+            <span></span>
+            <label>Email</label>
+        </div>
+
+        <div class="txt_field">
+            <input type="password1" required name="password1">
+            <span></span>
+            <label>Hasło</label>
+        </div>
+
+        <div class="txt_field">
+            <input type="password2" required name="password2">
+            <span></span>
+            <label>Powtórz hasło</label>
         </div>
 
         <!-- <div class="pass">Forgot Password?</div> -->
         <input type="submit" value="Zrejestruj się">
         <div class="signup_link">
-          Czy masz już konto? <a href="login.html">Zaloguj się</a>
+            Czy masz już konto? <a href="login.html">Zaloguj się</a>
         </div>
-      </form>
-    </div>
+    </form>
+</div>
 
-  </body>
+</body>
 </html>
