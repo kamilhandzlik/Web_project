@@ -9,11 +9,11 @@ from django.utils import timezone
 from django.urls import reverse
 from .models import *
 
+
 # Create your views here.
 
 def RegisterView(request):
-
-    if request.method =="POST":
+    if request.method == "POST":
         first_name = request.POST.get('first_name')
         last_name = request.POST.get('last_name')
         username = request.POST.get('username')
@@ -47,14 +47,44 @@ def RegisterView(request):
                 last_name=last_name,
                 username=username,
                 email=email,
-                password1=password,
+                password=password,
                 # password2=password2
             )
             messages.success(request, 'Konto zostało utworzone poprawnie. Teraz się zaloguj.')
             return render(request, 'login.html')
 
+    return render(request, 'register.html')
 
-    return  render(request, 'register.html')
 
 def LoginView(request):
-    return  render(request, 'login.html')
+    if request.method == "POST":
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+
+        user = authenticate(request, username=username, password=password)
+
+        if user is not None:
+            login(request, user)
+            return redirect('home')
+        else:
+            messages.error(request, 'Nieprawidłowa nazwa użytkownika lub hasło.')
+            return redirect('login')
+
+    return render(request, 'login.html')
+
+
+def LogoutView(request):
+
+    logout(request)
+
+    return redirect('login')
+
+
+def ForgotPassword(request):
+    return render(request, 'forgot_password.html')
+
+def PasswordResetSent(request, reset_id):
+    return render(request, 'password_reset_sent.html')
+
+def ResetPassword(request, reset_id):
+    return render(request, 'reset_password.html')

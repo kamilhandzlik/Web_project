@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
+    {% load static %}
     <meta charset="uth-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Strona główna</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
 </head>
 <body>
+<div class="center">
     <P>Witaj świecie</P>
     <br><br>
 
-    <a href="logout.html">Wyloguj</a>
+    <a href="{% url 'logout' %}">Wyloguj</a>
+</div>
 </body>
 </html>

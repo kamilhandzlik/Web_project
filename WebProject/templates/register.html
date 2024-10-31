@@ -9,6 +9,15 @@
 <body>
 <div class="center">
     <h1>Rejestracja</h1>
+    {% if messages %}
+        {% for message in messages %}
+            {% if message.tags == 'error' %}
+                <center><h4 style="color: firebrick;">{{message}}</h4></center>
+            {% else %}
+                <center><h4 style="color: dodgerblue;">{{message}}</h4></center>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
 
     <form method="POST">
 
@@ -39,21 +48,21 @@
         </div>
 
         <div class="txt_field">
-            <input type="password1" required name="password1">
+            <input type="password" required name="password">
             <span></span>
             <label>Hasło</label>
         </div>
 
-        <div class="txt_field">
-            <input type="password2" required name="password2">
-            <span></span>
-            <label>Powtórz hasło</label>
-        </div>
+<!--        <div class="txt_field">-->
+<!--            <input type="password2" required name="password2">-->
+<!--            <span></span>-->
+<!--            <label>Powtórz hasło</label>-->
+<!--        </div>-->
 
         <!-- <div class="pass">Forgot Password?</div> -->
         <input type="submit" value="Zrejestruj się">
         <div class="signup_link">
-            Czy masz już konto? <a href="login.html">Zaloguj się</a>
+            Czy masz już konto? <a href="{% url 'login' %}">Zaloguj się</a>
         </div>
     </form>
 </div>
