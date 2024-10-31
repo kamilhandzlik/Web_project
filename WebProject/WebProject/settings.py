@@ -131,3 +131,15 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # where authenticated user gets redirected to when they try to access a login required view
 LOGIN_URL = 'login'
+
+
+"""For gmail users, create an app password below:
+
+https://myaccount.google.com/apppasswords  """
+
+
+EMAIL_HOST="smtp.gmail.com"
+EMAIL_PORT=465
+EMAIL_USE_SSL=True
+EMAIL_HOST_USER=config('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD=config('EMAIL_HOST_PASSWORD')
