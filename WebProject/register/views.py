@@ -19,39 +19,47 @@ def RegisterView(request):
         username = request.POST.get('username')
         email = request.POST.get('email')
         password = request.POST.get('password')
-        # password2 = request.POST.get('password2')
+        confirm_password = request.POST.get('confirm_password')
+
 
         user_data_has_error = False
 
+
         if User.objects.filter(username=username).exists():
             user_data_has_error = True
-            messages.error(request, 'Taka nazwa użytkownika jest zajęta.')
+            messages.error(request, 'Taki użytkownik już istnieje.')
 
-        # if User.object.filter(email=email).exists():
+
+        # if User.objects.filter(email=email).exists():
         #     user_data_has_error = True
-        #     messages.error(request, 'Ten email jest zajęty.')
+        #     messages.error(request, 'Użytkownik z takim mailem już istnieje.')
+
 
         if len(password) < 8:
             user_data_has_error = True
-            messages.error(request, 'Twoje hasło jest zakrótkie. Musi mieć minimum 8 znaków')
+            messages.error(request, 'Twoje hasło jest za krótkie. Musi mieć minimum 8 znaków.')
 
-        # if password2 != password1:
-        #     user_data_has_error = True
-        #     messages.error(request, 'Hasła nie pasują do siebie.')
+        if password != confirm_password:
+            user_data_has_error = True
+            messages.error(request, 'Hasła nie pasują do siebie.')
+
 
         if user_data_has_error:
             return redirect('register')
-        else:
-            new_user = User.objects.create_user(
-                first_name=first_name,
-                last_name=last_name,
-                username=username,
-                email=email,
-                password=password,
-                # password2=password2
-            )
-            messages.success(request, 'Konto zostało utworzone poprawnie. Teraz się zaloguj.')
-            return render(request, 'login.html')
+
+
+        new_user = User.objects.create_user(
+            first_name=first_name,
+            last_name=last_name,
+            username=username,
+            email=email,
+            password=password
+        )
+
+
+        messages.success(request, 'Konto zostało utworzone poprawnie. Teraz się zaloguj.')
+        return redirect('login')
+
 
     return render(request, 'register.html')
 
@@ -92,7 +100,7 @@ def ForgotPassword(request):
 
             password_reset_url = reverse('reset-password', kwargs={'reset_id': new_password_reset.reset_id})
 
-            full_password_reset_url = f'{request.get_scheme()}://{request.get_host()}{password_reset_url}'
+            full_password_reset_url = f'{request.scheme}://{request.get_host()}{password_reset_url}'
 
             email_body = f"Zresetuj hasło używając poniższego linku:\n\n\n{full_password_reset_url}"
 
@@ -151,18 +159,18 @@ def ResetPassword(request, reset_id):
 
             # Reset of password
             if not password_have_error:
-                user = reset_id.user
+                user = password_reset_id.user
                 user.set_password(password)
                 user.save()
 
                 # Delete reset id after use
-                reset_id.delete()
+                password_reset_id.delete()
 
                 # Redirect to login
                 messages.success(request, 'Hasło zresetowano pomyślnie. Teraz się zaloguj.')
                 return redirect('login')
             else:
-                return redirect('reset-password', reset_id-reset_id)
+                return redirect('reset-password', reset_id=reset_id)
 
 
     except PasswordReset.DoesNotExist:

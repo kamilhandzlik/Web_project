@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en" dir="ltr" xmlns="http://www.w3.org/1999/html">
 <head>
     {% load static %}
     <meta charset="utf-8">
@@ -53,13 +53,13 @@
             <label>Hasło</label>
         </div>
 
-<!--        <div class="txt_field">-->
-<!--            <input type="password" required>-->
-<!--            <span></span>-->
-<!--            <label>Powtórz hasło</label>-->
-<!--        </div>-->
+        <div class="txt_field">
+            <input type="password" required name="confirm_password">
+            <span></span>
+            <label>Powtórz hasło</label>
+        </div>
 
-        <!-- <div class="pass">Forgot Password?</div> -->
+
         <input type="submit" value="Zrejestruj się">
         <div class="signup_link">
             Czy masz już konto? <a href="{% url 'login' %}">Zaloguj się</a>
