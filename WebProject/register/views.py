@@ -1,13 +1,13 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
-from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.conf import settings
 from django.core.mail import EmailMessage
 from django.utils import timezone
 from django.urls import reverse
+from django.shortcuts import get_object_or_404
 from .models import *
+import random
 
 
 # Create your views here.
@@ -55,13 +55,65 @@ def RegisterView(request):
             email=email,
             password=password
         )
+        new_user.is_active = False
+        new_user.save()
 
+        activation_code = random.randint(100000, 999999)
+        request.session['activation_code'] = activation_code
+        request.session['user_id'] = new_user.id
 
-        messages.success(request, 'Konto zostało utworzone poprawnie. Teraz się zaloguj.')
-        return redirect('login')
+        email_body = f"Witaj {first_name}! Twój kod aktywacyjny to: {activation_code}"
+        email_message = EmailMessage(
+            'Kod aktywacyjny konta',
+            email_body,
+            settings.EMAIL_HOST_USER,
+            [email]
+        )
+        email_message.send(fail_silently=True)
+
+        messages.success(request, 'Konto zostało utworzone. Sprawdź swoją skrzynkę e-mail, aby aktywować konto.')
+        return redirect('activate-account')
 
 
     return render(request, 'register.html')
+
+
+
+def confirm_registration(request, confirmation_id):
+    confirmation = get_object_or_404(RegistrationConfirmation, confirmation_id=confirmation_id)
+    user = confirmation.user
+    user.is_active = True
+    user.save()
+
+
+    confirmation.delete()
+
+    messages.success(request, 'Twoje konto zostało potwierdzone. Możesz się teraz zalogować.')
+    return redirect('login')
+
+
+def ActivateAccount(request):
+    if request.method == "POST":
+        input_code = request.POST.get('activation_code')
+        user_id = request.session.get('user_id')
+        activation_code = request.session.get('activation_code')
+
+        if input_code == str(activation_code):
+            user = User.objects.get(id=user_id)
+            user.is_active = True
+            user.save()
+
+            # Czyszczenie sesji po aktywacji
+            del request.session['activation_code']
+            del request.session['user_id']
+
+            messages.success(request, "Twoje konto zostało pomyślnie aktywowane!")
+            return redirect('login')
+        else:
+            messages.error(request, "Kod aktywacyjny jest nieprawidłowy.")
+            return redirect('activate-account')
+
+    return render(request, 'activate_account.html')
 
 
 def LoginView(request):

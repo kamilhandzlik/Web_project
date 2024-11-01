@@ -11,3 +11,9 @@ class PasswordReset(models.Model):
 
     def __str__(self):
         return f"Resetowanie hasła dla użytkownika {self.user.username} w dniu {self.create_when}"
+
+
+class RegistrationConfirmation(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    confirmation_id = models.UUIDField(default=uuid.uuid4, unique=True)
+    created_at = models.DateTimeField(auto_now_add=True)
