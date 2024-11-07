@@ -67,23 +67,26 @@
                 <li>
                     <div class="iocn-link">
                         <a href="#">
-                            <i class="bx bx-book"></i>
-                            <span class="link_name">Posts</span>
+                            <i class='bx bxs-message-dots'></i>
+                            <span class="link_name">Wiadomości</span>
                         </a>
                         <i class="bx bxs-chevron-down arrow"></i>
                     </div>
                     <ul class="sub-menu">
                         <li>
-                            <a class="link_name" href="#">Posts</a>
+                            <a class="link_name" href="#">Wiadomości</a>
                         </li>
                         <li>
-                            <a href="#">Something</a>
+                            <a href="#">Do mnie</a>
                         </li>
                         <li>
-                            <a href="#">Something 1</a>
+                            <a href="#">Oferty</a>
                         </li>
                         <li>
-                            <a href="#">Something more</a>
+                            <a href="#">Czat</a>
+                        </li>
+                        <li>
+                            <a href="#">Pomoc techniczna</a>
                         </li>
                     </ul>
                 </li>
@@ -149,11 +152,9 @@
                     <li>
                         <div class="name-job">
                             <div class="profile-name">Jon Doe</div>
-                            <!-- TODO in django projects change to {{user.name}} -->
                         </div>
                         <i class="bx bx-log-out"></i>
                         <a href="{% url 'logout' %}">Wyloguj</a>
-                        <!-- TODO in project change to working logout -->
                     </div>
                 </li>
             </ul>
@@ -162,7 +163,6 @@
             <div class="home-content">
                 <i class="bx bx-menu"></i>
                 <span class="text">DropPost</span>
-                <!-- TODO in project change to prpper name like everything else XD -->
             </div>
             {% block content %}{% endblock %}
         </section>
