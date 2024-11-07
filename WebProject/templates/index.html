@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="pl" dir="ltr">
     <head>
+        {% load static %}
         <meta charset="UTF-8">
         <title>Strona główna</title>
         <link rel="stylesheet" href="{% static 'style.css' %}">
@@ -13,7 +14,7 @@
         <div class="sidebar">
             <div class="logo-details">
                 <i class="bx bxs-package"></i>
-                <span class="logo_name">AddLogo</span>
+                <span class="logo_name">DropPost</span>
             </div>
             <ul class="nav-links">
                 <li>
@@ -97,7 +98,7 @@
                 </li>
                 <div class="profile-details">
                     <div class="profile-content">
-                        <img src="image/profile.jpg" alt="profile">
+                        <img src="{% static 'images/profile.jpg' %}" alt="profile">
                     </div>
                     <li>
                         <div class="name-job">
@@ -114,9 +115,10 @@
         <section class="home-section">
             <div class="home-content">
                 <i class="bx bx-menu"></i>
-                <span class="text">Drop down sidebar</span>
+                <span class="text">DropPost</span>
                 <!-- TODO in project change to prpper name like everything else XD -->
             </div>
+            {% block content %}{% endblock %}
         </section>
         <script>
 
@@ -137,5 +139,4 @@
         });
         </script>
     </body>
-    <!--{% block content %}{% endblock %}-->
 </html>
