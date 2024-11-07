@@ -13,41 +13,54 @@
     <body>
         <div class="sidebar">
             <div class="logo-details">
-                <i class="bx bxs-package"></i>
+                <a href="{% url 'home' %}">
+                    <i class="bx bxs-package" ></i>
+                </a>
                 <span class="logo_name">DropPost</span>
             </div>
             <ul class="nav-links">
                 <li>
                     <a href="#">
-                        <i class="bx bx-grid-alt"></i>
-                        <span class="link_name">Dashboard</span>
+                        <i class='bx bxs-color'></i>
+                        <span class="link_name">O Nas</span>
                     </a>
                     <ul class="sub-menu blank">
                         <li>
-                            <a class="link_name" href="#">Dashboarg</a>
+                            <a class="link_name" href="#">O Nas</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class='bx bx-package' ></i>
+                        <span class="link_name">Twoje Paczki</span>
+                    </a>
+                    <ul class="sub-menu blank">
+                        <li>
+                            <a class="link_name" href="#">Twoje Paczki</a>
                         </li>
                     </ul>
                 </li>
                 <li>
                     <div class="iocn-link">
                         <a href="#">
-                            <i class="bx bxs-collection"></i>
-                            <span class="link_name">Category</span>
+                            <i class='bx bxs-business'></i>
+                            <span class="link_name">Współpraca</span>
                         </a>
                         <i class="bx bxs-chevron-down arrow"></i>
                     </div>
                     <ul class="sub-menu">
                         <li>
-                            <a class="link_name" href="#">Category</a>
+                            <a class="link_name" href="#">Współpraca</a>
                         </li>
                         <li>
-                            <a href="#">Something</a>
+                            <a href="#">Paczkomat</a>
                         </li>
                         <li>
-                            <a href="#">Something 1</a>
+                            <a href="#">Punkt pocztowy</a>
                         </li>
                         <li>
-                            <a href="#">Something more</a>
+                            <a href="#">Magazyn</a>
                         </li>
                     </ul>
                 </li>
@@ -76,23 +89,56 @@
                 </li>
                 <li>
                     <a href="#">
-                        <i class="bx bx-plus-medical"></i>
-                        <span class="link_name">Something</span>
+                        <i class='bx bx-receipt'></i>
+                        <span class="link_name">Regulamin</span>
                     </a>
                     <ul class="sub-menu blank">
                         <li>
-                            <a class="link_name" href="#">Something</a>
+                            <a class="link_name" href="#">Regulamin</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class='bx bx-phone'></i>
+                        <span class="link_name">Kontakt</span>
+                    </a>
+                    <ul class="sub-menu blank">
+                        <li>
+                            <a class="link_name" href="#">Kontakt</a>
                         </li>
                     </ul>
                 </li>
                 <li>
                     <a href="#">
                         <i class="bx bxs-cog"></i>
-                        <span class="link_name">Settings</span>
+                        <span class="link_name">Ustawienia</span>
                     </a>
                     <ul class="sub-menu blank">
                         <li>
-                            <a class="link_name" href="#">Settings</a>
+                            <a class="link_name" href="#">Ustawienia</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="{% url 'login' %}">
+                        <i class='bx bx-log-in'></i>
+                        <span class="link_name">Zaluguj się</span>
+                    </a>
+                    <ul class="sub-menu blank">
+                        <li>
+                            <a class="link_name" href="{% url 'login' %}">Zaluguj się</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="{% url 'register' %}">
+                        <i class='bx bx-registered'></i>
+                        <span class="link_name">Zarejestruj się</span>
+                    </a>
+                    <ul class="sub-menu blank">
+                        <li>
+                            <a class="link_name" href="{% url 'register' %}">Zarejestruj się</a>
                         </li>
                     </ul>
                 </li>
