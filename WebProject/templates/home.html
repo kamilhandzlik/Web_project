@@ -1,0 +1,38 @@
+{% extends 'index.html' %}
+{% load static %}
+
+
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>DropPost</title>
+</head>
+
+<body>
+{% block content %}
+{% for main in mainpages %}
+<div class="txt-style">
+    <h1 style="text-align: center;">{{ main.title }}</h1>
+    <h4>{{ main.description_1_subtitle }}</h4>
+    <div><img src="{% static 'images/img.jpg' %}" style="max-width: 400px; float: left; margin-right: 10px;" alt="Logo">
+        <p style="text-align: justify;">{{ main.description_1 }}</p></div>
+    <br/>
+    <h4>{{ main.description_2_subtitle }}</h4>
+    <p style="text-align: justify;">{{ main.description_2 }}</p>
+    <h4>{{ main.description_3_subtitle }}</h4>
+    <p style="text-align: justify;">{{ main.description_3 }}</p>
+    <h4>{{ main.description_4_subtitle }}</h4>
+    <div><img src="{% static 'images/img.jpg' %}" style="max-width: 400px; float: right; margin-left: 10px;"
+              alt="Logo">
+        <p style="text-align: justify;">{{ main.description_4 }}</p></div>
+    <br/>
+    <h4>{{ main.description_5_subtitle }}</h4>
+    <p style="text-align: justify;">{{ main.description_5 }}</p>
+    <h4>{{ main.description_6_subtitle }}</h4>
+    <p style="text-align: justify;">{{ main.description_6 }}</p>
+</div>
+</div>
+</div>
+{% endblock %}
+</body>
+</html>
