@@ -1,188 +1,221 @@
 <!DOCTYPE html>
 <html lang="pl" dir="ltr">
-    <head>
-        {% load static %}
-        <meta charset="UTF-8">
-        <title>Strona główna</title>
-        <link rel="stylesheet" href="{% static 'style.css' %}">
-        <!--    Adjust to project -->
-        <!--    Boxicons CDN Link-->
-        <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-        <div class="sidebar">
-            <div class="logo-details">
-                <a href="{% url 'home' %}">
-                    <i class="bx bxs-package" ></i>
-                </a>
-                <span class="logo_name">DropPost</span>
-            </div>
-            <ul class="nav-links">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>DropPost</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <!--    Adjust to project -->
+    <!--    Boxicons CDN Link-->
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<div class="sidebar">
+    <div class="logo-details">
+        <a href="{% url 'home' %}">
+            <i class="bx bxs-package"></i>
+        </a>
+        <span class="logo_name">DropPost</span>
+    </div>
+    <ul class="nav-links">
+        <li>
+            <a href="#">
+                <i class='bx bxs-color'></i>
+                <span class="link_name">O Nas</span>
+            </a>
+            <ul class="sub-menu blank">
                 <li>
-                    <a href="#">
-                        <i class='bx bxs-color'></i>
-                        <span class="link_name">O Nas</span>
-                    </a>
-                    <ul class="sub-menu blank">
-                        <li>
-                            <a class="link_name" href="#">O Nas</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class='bx bx-package' ></i>
-                        <span class="link_name">Twoje Paczki</span>
-                    </a>
-                    <ul class="sub-menu blank">
-                        <li>
-                            <a class="link_name" href="#">Twoje Paczki</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <div class="iocn-link">
-                        <a href="#">
-                            <i class='bx bxs-business'></i>
-                            <span class="link_name">Współpraca</span>
-                        </a>
-                        <i class="bx bxs-chevron-down arrow"></i>
-                    </div>
-                    <ul class="sub-menu">
-                        <li>
-                            <a class="link_name" href="#">Współpraca</a>
-                        </li>
-                        <li>
-                            <a href="#">Paczkomat</a>
-                        </li>
-                        <li>
-                            <a href="#">Punkt pocztowy</a>
-                        </li>
-                        <li>
-                            <a href="#">Magazyn</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <div class="iocn-link">
-                        <a href="#">
-                            <i class='bx bxs-message-dots'></i>
-                            <span class="link_name">Wiadomości</span>
-                        </a>
-                        <i class="bx bxs-chevron-down arrow"></i>
-                    </div>
-                    <ul class="sub-menu">
-                        <li>
-                            <a class="link_name" href="#">Wiadomości</a>
-                        </li>
-                        <li>
-                            <a href="#">Do mnie</a>
-                        </li>
-                        <li>
-                            <a href="#">Oferty</a>
-                        </li>
-                        <li>
-                            <a href="#">Czat</a>
-                        </li>
-                        <li>
-                            <a href="#">Pomoc techniczna</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class='bx bx-receipt'></i>
-                        <span class="link_name">Regulamin</span>
-                    </a>
-                    <ul class="sub-menu blank">
-                        <li>
-                            <a class="link_name" href="#">Regulamin</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class='bx bx-phone'></i>
-                        <span class="link_name">Kontakt</span>
-                    </a>
-                    <ul class="sub-menu blank">
-                        <li>
-                            <a class="link_name" href="#">Kontakt</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="bx bxs-cog"></i>
-                        <span class="link_name">Ustawienia</span>
-                    </a>
-                    <ul class="sub-menu blank">
-                        <li>
-                            <a class="link_name" href="#">Ustawienia</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="{% url 'login' %}">
-                        <i class='bx bx-log-in'></i>
-                        <span class="link_name">Zaluguj się</span>
-                    </a>
-                    <ul class="sub-menu blank">
-                        <li>
-                            <a class="link_name" href="{% url 'login' %}">Zaluguj się</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="{% url 'register' %}">
-                        <i class='bx bx-registered'></i>
-                        <span class="link_name">Zarejestruj się</span>
-                    </a>
-                    <ul class="sub-menu blank">
-                        <li>
-                            <a class="link_name" href="{% url 'register' %}">Zarejestruj się</a>
-                        </li>
-                    </ul>
-                </li>
-                <div class="profile-details">
-                    <div class="profile-content">
-                        <img src="{% static 'images/profile.jpg' %}" alt="profile">
-                    </div>
-                    <li>
-                        <div class="name-job">
-                            <div class="profile-name">Jon Doe</div>
-                        </div>
-                        <i class="bx bx-log-out"></i>
-                        <a href="{% url 'logout' %}">Wyloguj</a>
-                    </div>
+                    <a class="link_name" href="#">O Nas</a>
                 </li>
             </ul>
-        </div>
-        <section class="home-section">
-            <div class="home-content">
-                <i class="bx bx-menu"></i>
-                <span class="text">DropPost</span>
+        </li>
+        {% if user.is_authenticated %}
+        <li>
+            <a href="#">
+                <i class='bx bx-package'></i>
+                <span class="link_name">Twoje Paczki</span>
+            </a>
+            <ul class="sub-menu blank">
+                <li>
+                    <a class="link_name" href="#">Twoje Paczki</a>
+                </li>
+            </ul>
+        </li>
+        {% else %}
+        {% endif %}
+        <li>
+            <div class="iocn-link">
+                <a href="#">
+                    <i class='bx bxs-business'></i>
+                    <span class="link_name">Współpraca</span>
+                </a>
+                <i class="bx bxs-chevron-down arrow"></i>
             </div>
-            {% block content %}{% endblock %}
-        </section>
-        <script>
+            <ul class="sub-menu">
+                <li>
+                    <a class="link_name" href="#">Współpraca</a>
+                </li>
+                <li>
+                    <a href="#">Paczkomat</a>
+                </li>
+                <li>
+                    <a href="#">Punkt pocztowy</a>
+                </li>
+                <li>
+                    <a href="#">Magazyn</a>
+                </li>
+            </ul>
+        </li>
+        {% if user.is_authenticated %}
+        <li>
+            <div class="iocn-link">
+                <a href="#">
+                    <i class='bx bxs-message-dots'></i>
+                    <span class="link_name">Wiadomości</span>
+                </a>
+                <i class="bx bxs-chevron-down arrow"></i>
+            </div>
+            <ul class="sub-menu">
+                <li>
+                    <a class="link_name" href="#">Wiadomości</a>
+                </li>
+                <li>
+                    <a href="#">Do mnie</a>
+                </li>
+                <li>
+                    <a href="#">Oferty</a>
+                </li>
+                <li>
+                    <a href="#">Czat</a>
+                </li>
+                <li>
+                    <a href="#">Pomoc techniczna</a>
+                </li>
+            </ul>
+        </li>
+        {% else %}
+        {% endif %}
+        <li>
+            <a href="#">
+                <i class='bx bx-receipt'></i>
+                <span class="link_name">Regulamin</span>
+            </a>
+            <ul class="sub-menu blank">
+                <li>
+                    <a class="link_name" href="#">Regulamin</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="{% url 'contact' %}">
+                <i class='bx bx-phone'></i>
+                <span class="link_name">Kontakt</span>
+            </a>
+            <ul class="sub-menu blank">
+                <li>
+                    <a class="link_name" href="{% url 'contact' %}">Kontakt</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">
+                <i class="bx bxs-cog"></i>
+                <span class="link_name">Ustawienia</span>
+            </a>
+            <ul class="sub-menu blank">
+                <li>
+                    <a class="link_name" href="#">Ustawienia</a>
+                </li>
+            </ul>
+        </li>
+        {% if user.is_authenticated %}
 
-            let arrow = document.querySelectorAll(".arrow");
-            for (var i =0; i < arrow.length; i++) {
-                arrow[i].addEventListener("click", (e)=>{
-                    console.log(arrow);
-                let arrowParent = e.target.parentElement.parentElement;
-                arrowParent.classList.toggle("showMenu");
-                });
-            }
+        {% else %}
+        <li>
+            <a href="{% url 'login' %}">
+                <i class='bx bx-log-in'></i>
+                <span class="link_name">Zaloguj się</span>
+            </a>
+            <ul class="sub-menu blank">
+                <li>
+                    <a class="link_name" href="{% url 'login' %}">Zaloguj się</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="{% url 'register' %}">
+                <i class='bx bx-window-open' ></i>
+                <span class="link_name">Zarejestruj się</span>
+            </a>
+            <ul class="sub-menu blank">
+                <li>
+                    <a class="link_name" href="{% url 'register' %}">Zarejestruj się</a>
+                </li>
+            </ul>
+        </li>
+        {% endif %}
+        <div class="profile-details">
+            {% if user.is_authenticated %}
+            <div class="profile-content">
+                <img src="{% static 'images/profile.jpg' %}" alt="profile">
+            </div>
+            {% else %}
+            <div></div>
+            {% endif %}
+            <li>
+                {% if user.is_authenticated %}
+                <div class="name-job">
+                    <div class="profile-name">{{ user.username }}</div>
+                </div>
+                <a href="{% url 'logout' %}" method="POST"><i class="bx bx-log-out"></i></a>
+                {% else %}
 
-        let sidebar = document.querySelector(".sidebar");
-        let sidebarBtn = document.querySelector(".bx-menu");
-        console.log(sidebarBtn)
-        sidebarBtn.addEventListener("click", ()=>{
-            sidebar.classList.toggle("close");
+                {% endif %}
+        </div>
+        </li>
+    </ul>
+</div>
+{% if messages %}
+<div class="message-box">
+    {% for message in messages %}
+    <div class="message {{ message.tags }}">{{ message }}</div>
+    {% endfor %}
+</div>
+{% endif %}
+<section class="home-section">
+    <div class="home-content">
+        <i class="bx bx-menu"></i>
+        <span class="text">DropPost</span>
+    </div>
+    {% block content %}{% endblock %}
+</section>
+<script>
+
+    let arrow = document.querySelectorAll(".arrow");
+    for (var i =0; i < arrow.length; i++) {
+        arrow[i].addEventListener("click", (e)=>{
+            console.log(arrow);
+        let arrowParent = e.target.parentElement.parentElement;
+        arrowParent.classList.toggle("showMenu");
         });
-        </script>
-    </body>
+    }
+
+let sidebar = document.querySelector(".sidebar");
+let sidebarBtn = document.querySelector(".bx-menu");
+console.log(sidebarBtn)
+sidebarBtn.addEventListener("click", ()=>{
+    sidebar.classList.toggle("close");
+});
+
+      document.addEventListener("DOMContentLoaded", function() {
+      setTimeout(function() {
+          var welcomeMessage = document.getElementById("message-box");
+          if (welcomeMessage) {
+              welcomeMessage.style.display = "none";
+          }
+      }, 3000);
+  });
+</script>
+</body>
 </html>

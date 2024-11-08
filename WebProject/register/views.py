@@ -125,6 +125,7 @@ def LoginView(request):
 
         if user is not None:
             login(request, user)
+            messages.success(request, f"Witaj {request.user.username}!")
             return redirect('home')
         else:
             messages.error(request, 'Nieprawidłowa nazwa użytkownika lub hasło.')

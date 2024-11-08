@@ -17,3 +17,4 @@ class RegistrationConfirmation(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     confirmation_id = models.UUIDField(default=uuid.uuid4, unique=True)
     created_at = models.DateTimeField(auto_now_add=True)
+

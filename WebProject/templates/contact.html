@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Skontaktuj się z nami...</title>
+</head>
+<body>
+{% extends 'index.html' %}
+
+{% block content %}
+<h2><center>Skontaktuj się z nami...</center> </h2>
+{% for element in contact_fields %}
+  <div>
+  <br/>
+  <h4>ADRES NASZEJ SIEDZIBY</h4>
+    <p><b>{{ element.city }}</b>, {{ element.street }} {{ element.house_number }}
+    <br/>
+    <b>Numer NIP:</b> {{ element.vat_number }}
+    <br/>
+    <b>Numer konta:</b> {{ element.account_number }}
+    <br/>
+    <b>Numer konta:</b> {{ element.account_number }}
+    <br/>
+    <br/>
+    <b>Adres e-mail:</b> {{ element.email_address }}
+    <br/>
+    <b>Numer telefonu:</b> {{ element.phone_number }}
+    <br/>
+    <b>Godziny otwarcia biura:</b> {{ element.working_days }} {{ element.working_hours }}
+    <br/>
+    </p>
+
+  </div>
+{% endfor %}  {# Upewnij się, że ten tag jest na miejscu #}
+{% endblock %}
+</body>
+</html>
