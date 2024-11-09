@@ -31,7 +31,7 @@ class ContactForm(SingletonModel):
 
 class MainPage(SingletonModel):
     title = models.CharField(max_length=50)
-    description_1_subtitle = models.TextField(default="Wstaw tytół pod pierwszy akapit")
+    description_1_subtitle = models.TextField(default="Wstaw tytuł pod pierwszy akapit")
     description_1 = models.TextField(default="Wstaw swój tekst.")
     description_2_subtitle = models.TextField(default="", blank=True)
     description_2 = models.TextField(default="", blank=True)
