@@ -4,7 +4,7 @@ from .models import ContactForm
 
 # Create your views here.
 def Home(request):
-    return render(request, 'index.html')
+    return render(request, 'home.html')
 
 def contact(request):
     contact_fields = ContactForm.objects.all()

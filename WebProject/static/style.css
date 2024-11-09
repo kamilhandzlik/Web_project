@@ -311,7 +311,7 @@ input[type="submit"]:hover{
   position: relative;
   background: #E4E9F7;
   /* zobacz czy przy tym będzie się wogule wyświetlać co kolwie na stronie w django jak nie to zmienieamy wysokość oraz kolor */
-  height: 100px;
+  height: 100vh;
   left: 260px;
   width: calc(100% - 260px);
   transition: all 0.5s ease;
@@ -338,8 +338,8 @@ input[type="submit"]:hover{
   font-weight: 600;
 }
 .welcome-message{
-position: fixed;
-top: 10px;
+    position: fixed;
+    top: 10px;
     background-color: #11101d;
     color: #fff;
     padding: 15px;

@@ -29,3 +29,15 @@ class ContactForm(SingletonModel):
     vat_number = models.CharField(max_length=50, null=True, blank=True)
     account_number = models.CharField(max_length=50, null=True, blank=True)
 
+class MainPage(SingletonModel):
+    title = models.CharField(max_length=50)
+    description_1_subtitle = models.TextField(default="Wstaw tytół pod pierwszy akapit")
+    description_1 = models.TextField(default="Wstaw swój tekst.")
+    description_2_subtitle = models.TextField(default="", blank=True)
+    description_2 = models.TextField(default="", blank=True)
+    description_3_subtitle = models.TextField(default="", blank=True)
+    description_3 = models.TextField(default="", blank=True)
+    description_4_subtitle = models.TextField(default="", blank=True)
+    description_4 = models.TextField(default="", blank=True)
+    description_5_subtitle = models.TextField(default="", blank=True)
+    description_5 = models.TextField(default="", blank=True)
