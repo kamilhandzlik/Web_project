@@ -114,10 +114,10 @@ input[type="submit"]:hover{
   text-decoration: underline;
 }
 *{
-   margin: 0;
-   padding: fixed;
-   box-sizing: border-box;
-   font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: fixed;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 .sidebar{
     position: fixed;
@@ -177,12 +177,10 @@ input[type="submit"]:hover{
   background: #1d1b31;
 }
 .sidebar .nav-links li .iocn-link{
-  position: absolute;
-  top: flex;
-  z-index: 78;
-  left: 0;
-  width: 260px;
-  }
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 .sidebar .nav-links li i{
   height: 50px;
   min-width: 78px;
@@ -313,10 +311,9 @@ input[type="submit"]:hover{
   position: relative;
   background: #E4E9F7;
   /* zobacz czy przy tym będzie się wogule wyświetlać co kolwie na stronie w django jak nie to zmienieamy wysokość oraz kolor */
-  height: 100%;
+  height: 100px;
   left: 260px;
   width: calc(100% - 260px);
-  height: 100vh;
   transition: all 0.5s ease;
 }
 .sidebar.close ~ .home-section{
@@ -340,15 +337,15 @@ input[type="submit"]:hover{
   font-size: 26px;
   font-weight: 600;
 }
-.message-box {
-  position: absolute;
-  top: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: rgba(255, 255, 255, 0.8);
-  padding: 10px 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+.welcome-message{
+position: fixed;
+top: 10px;
+    background-color: #11101d;
+    color: #fff;
+    padding: 15px;
+    border-radius: 5px;
+    z-index: 1000;
+    font-size: 16px;
 }
 .txt-style{
   font-size: 18px;
