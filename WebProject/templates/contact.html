@@ -10,11 +10,11 @@
 {% block content %}
 <div class="center">
     <div class="txt-style">
-        <h2>
+        <h1>
             <center>Skontaktuj się z nami...</center>
-        </h2>
+        </h1>
         {% for element in contact_fields %}
-        <div>
+        <div class="signup_link">
             <br/>
             <h4>ADRES NASZEJ SIEDZIBY</h4>
             <p><b>{{ element.city }}</b>, {{ element.street }} {{ element.house_number }}
