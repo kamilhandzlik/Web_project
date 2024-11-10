@@ -16,16 +16,17 @@
         <h1 style="text-align: center;">{{ main.title }}</h1>
         <div class="signup_link">
             <h4>{{ main.description_1_subtitle }}</h4>
-            <div><img src="{% static 'images/img.jpg' %}" style="max-width: 400px; float: left; margin-right: 10px;"
+            <p style="text-align: justify;">{{ main.description_1 }}</p>
+            <div><img src="{% static 'images/img.jpg' %}" style="max-width: 400px; float: center; margin-right: 10px;"
                       alt="Logo">
-                <p style="text-align: justify;">{{ main.description_1 }}</p></div>
+            </div>
             <br/>
             <h4>{{ main.description_2_subtitle }}</h4>
             <p style="text-align: justify;">{{ main.description_2 }}</p>
             <h4>{{ main.description_3_subtitle }}</h4>
             <p style="text-align: justify;">{{ main.description_3 }}</p>
             <h4>{{ main.description_4_subtitle }}</h4>
-            <div><img src="{% static 'images/img.jpg' %}" style="max-width: 400px; float: right; margin-left: 10px;"
+            <div><img src="{% static 'images/img.jpg' %}" style="max-width: 400px; float: center; margin-right: 10px;"
                       alt="Logo">
                 <p style="text-align: justify;">{{ main.description_4 }}</p></div>
             <br/>

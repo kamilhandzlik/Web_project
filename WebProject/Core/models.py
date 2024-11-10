@@ -19,17 +19,31 @@ class SingletonModel(models.Model):
         obj, created = cls.objects.get_or_create(pk=1)
         return obj
 class ContactForm(SingletonModel):
-    city = models.CharField(max_length=50, null=True)
-    street = models.CharField(max_length=50, null=True)
-    house_number = models.CharField(max_length=50, null=True)
-    email_address = models.CharField(max_length=50, null=True)
-    phone_number = models.CharField(max_length=50, null=True)
-    working_days = models.CharField(max_length=50, null=True)
-    working_hours = models.CharField(max_length=50, null=True)
-    vat_number = models.CharField(max_length=50, null=True, blank=True)
-    account_number = models.CharField(max_length=50, null=True, blank=True)
+    city = models.CharField(max_length=50)
+    street = models.CharField(max_length=50)
+    house_number = models.CharField(max_length=50)
+    email_address = models.CharField(max_length=50)
+    phone_number = models.CharField(max_length=50)
+    working_days = models.CharField(max_length=50)
+    working_hours = models.CharField(max_length=50)
+    vat_number = models.CharField(max_length=50, blank=True)
+    account_number = models.CharField(max_length=50, blank=True)
 
 class MainPage(SingletonModel):
+    title = models.CharField(max_length=50)
+    description_1_subtitle = models.TextField(default="Wstaw tytuł pod pierwszy akapit")
+    description_1 = models.TextField(default="Wstaw swój tekst.")
+    description_2_subtitle = models.TextField(default="", blank=True)
+    description_2 = models.TextField(default="", blank=True)
+    description_3_subtitle = models.TextField(default="", blank=True)
+    description_3 = models.TextField(default="", blank=True)
+    description_4_subtitle = models.TextField(default="", blank=True)
+    description_4 = models.TextField(default="", blank=True)
+    description_5_subtitle = models.TextField(default="", blank=True)
+    description_5 = models.TextField(default="", blank=True)
+
+
+class AboutUsPage(SingletonModel):
     title = models.CharField(max_length=50)
     description_1_subtitle = models.TextField(default="Wstaw tytuł pod pierwszy akapit")
     description_1 = models.TextField(default="Wstaw swój tekst.")
