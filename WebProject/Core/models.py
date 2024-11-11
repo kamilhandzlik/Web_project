@@ -55,3 +55,4 @@ class AboutUsPage(SingletonModel):
     description_4 = models.TextField(default="", blank=True)
     description_5_subtitle = models.TextField(default="", blank=True)
     description_5 = models.TextField(default="", blank=True)
+    # TODO naprawić bazę
