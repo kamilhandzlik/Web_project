@@ -19,15 +19,15 @@ class SingletonModel(models.Model):
         obj, created = cls.objects.get_or_create(pk=1)
         return obj
 class ContactForm(SingletonModel):
-    city = models.CharField(max_length=50)
-    street = models.CharField(max_length=50)
-    house_number = models.CharField(max_length=50)
-    email_address = models.CharField(max_length=50)
-    phone_number = models.CharField(max_length=50)
-    working_days = models.CharField(max_length=50)
-    working_hours = models.CharField(max_length=50)
-    vat_number = models.CharField(max_length=50, blank=True)
-    account_number = models.CharField(max_length=50, blank=True)
+    city = models.CharField(max_length=50, default="Wpisz miasto.")
+    street = models.CharField(max_length=50, default='Wpisz nazwę ulicy.')
+    house_number = models.CharField(max_length=50, default='Wpisz numer domu.')
+    email_address = models.CharField(max_length=50, default="Wpisz email.")
+    phone_number = models.CharField(max_length=50, default='Wpisz numer telefonu.')
+    working_days = models.CharField(max_length=50, default='Wpisz dni.')
+    working_hours = models.CharField(max_length=50, default='Wpisz godziny.')
+    vat_number = models.CharField(max_length=50, default='Wpisz numer identyfikacji podatkowej.')
+    account_number = models.CharField(max_length=50, blank=True, null=True)
 
 class MainPage(SingletonModel):
     title = models.CharField(max_length=50)
@@ -55,4 +55,3 @@ class AboutUsPage(SingletonModel):
     description_4 = models.TextField(default="", blank=True)
     description_5_subtitle = models.TextField(default="", blank=True)
     description_5 = models.TextField(default="", blank=True)
-    # TODO naprawić bazę
