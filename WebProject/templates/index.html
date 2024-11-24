@@ -145,7 +145,7 @@
         </li>
         <li>
             <a href="{% url 'register' %}">
-                <i class='bx bx-window-open' ></i>
+                <i class='bx bx-window-open'></i>
                 <span class="link_name">Zarejestruj się</span>
             </a>
             <ul class="sub-menu blank">
@@ -176,13 +176,6 @@
         </li>
     </ul>
 </div>
-{% if messages %}
-<div class="message-box">
-    {% for message in messages %}
-    <div class="message {{ message.tags }}">{{ message }}</div>
-    {% endfor %}
-</div>
-{% endif %}
 <section class="home-section">
     <div class="home-content">
         <i class="bx bx-menu"></i>
@@ -208,7 +201,7 @@ sidebarBtn.addEventListener("click", ()=>{
     sidebar.classList.toggle("close");
 });
 
-      document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function() {
       setTimeout(function() {
           var welcomeMessage = document.getElementById("message-box");
           if (welcomeMessage) {
