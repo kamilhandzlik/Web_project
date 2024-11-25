@@ -8,8 +8,8 @@ def Home(request):
     return render(request, 'home.html',  {'mainpages': mainpages})
 
 def about_us(request):
-    mainpages = AboutUsPage.objects.all()
-    return render(request, 'about_us.html',  {'mainpages': mainpages})
+    aus_pages = AboutUsPage.objects.all()
+    return render(request, 'about_us.html', {'aus_pages': aus_pages})
 
 def contact(request):
     contact_fields = ContactForm.objects.all()
