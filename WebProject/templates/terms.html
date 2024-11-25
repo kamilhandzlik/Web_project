@@ -1,0 +1,35 @@
+{% extends 'index.html' %}
+{% load static %}
+
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Regulamin</title>
+</head>
+
+<body>
+{% block content %}
+<div class="center">
+    <div class="txt-style">
+        <h1 style="text-align: center">{{ term.title }}</h1>
+        <div class="signup_link">
+            <h4>{{ term.description_1_subtitle }}</h4>
+            <p style="text-align: justify;">{{ term.description_1 }}</p>
+            <br>
+            <h4>{{ term.description_2_subtitle }}</h4>
+            <p style="text-align: justify;">{{ term.description_2 }}</p>
+            <br>
+            <h4>{{ term.description_3_subtitle }}</h4>
+            <p style="text-align: justify;">{{ term.description_3 }}</p>
+            <br>
+            <h4>{{ term.description_4_subtitle }}</h4>
+            <p style="text-align: justify;">{{ term.description_4 }}</p>
+            <br>
+            <h4>{{ term.description_5_subtitle }}</h4>
+            <p style="text-align: justify;">{{ term.description_5 }}</p>
+        </div>
+    </div>
+</div>
+{% endblock %}
+</body>
+</html>

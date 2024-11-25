@@ -55,3 +55,17 @@ class AboutUsPage(SingletonModel):
     description_4 = models.TextField(default="", blank=True)
     description_5_subtitle = models.TextField(default="", blank=True)
     description_5 = models.TextField(default="", blank=True)
+
+
+class ServiceTerms(SingletonModel):
+    title = models.CharField(max_length=50)
+    description_1_subtitle = models.TextField(default="Wstaw tytuł akapitu.")
+    description_1 = models.TextField(default="Wstaw akapit.")
+    description_2_subtitle = models.TextField(default="Wstaw tytuł akapitu.")
+    description_2 = models.TextField(default="Wstaw akapit.")
+    description_3_subtitle = models.TextField(default="Wstaw tytuł akapitu.")
+    description_3 = models.TextField(default="Wstaw akapit.")
+    description_4_subtitle = models.TextField(default="Wstaw tytuł akapitu.")
+    description_4 = models.TextField(default="Wstaw akapit.")
+    description_5_subtitle = models.TextField(default="Wstaw tytuł akapitu.")
+    description_5 = models.TextField(default="Wstaw akapit.")
