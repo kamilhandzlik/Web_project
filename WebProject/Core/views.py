@@ -1,20 +1,70 @@
 from django.shortcuts import render
-from django.contrib.auth.decorators import login_required
-from .models import ContactForm, MainPage, AboutUsPage, ServiceTerms
+from django.views.generic import TemplateView, ListView
+from .models import (
+    ContactForm,
+    MainPage,
+    AboutUsPage,
+    ServiceTerms,
+    CooperationPage,
+    ParcelLockerPage,
+    PostPointPage,
+    WarehousePage,
+    EmploymentPage,
+)
 
-# Create your views here.
-def Home(request):
-    mainpages = MainPage.objects.all()
-    return render(request, 'home.html',  {'mainpages': mainpages})
 
-def AboutUs(request):
-    aus_pages = AboutUsPage.objects.all()
-    return render(request, 'about_us.html', {'aus_pages': aus_pages})
+class HomeView(ListView):
+    model = MainPage
+    template_name = 'home.html'
+    context_object_name = 'mainpages'
 
-def Contact(request):
-    contact_fields = ContactForm.objects.all()
-    return render(request, 'contact.html', {'contact_fields': contact_fields})
 
-def ServiceTermsView(request):
-    term = ServiceTerms.load()
-    return render(request, 'terms.html', {'term': term})
+class AboutUsView(ListView):
+    model = AboutUsPage
+    template_name = 'about_us.html'
+    context_object_name = 'aus_pages'
+
+
+class ContactView(ListView):
+    model = ContactForm
+    template_name = 'contact.html'
+    context_object_name = 'contact_fields'
+
+
+class ServiceTermsView(TemplateView):
+    template_name = 'terms.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['term'] = ServiceTerms.load()
+        return context
+
+
+class CooperationView(ListView):
+    model = CooperationPage
+    template_name = 'cooperation.html'
+    context_object_name = 'coop_fields'
+
+
+class ParcelLockerView(ListView):
+    model = ParcelLockerPage
+    template_name = 'parcel_locker.html'
+    context_object_name = 'parcels'
+
+
+class PostPointView(ListView):
+    model = PostPointPage
+    template_name = 'post_point.html'
+    context_object_name = 'postpoints'
+
+
+class WarehouseView(ListView):
+    model = WarehousePage
+    template_name = 'warehouse.html'
+    context_object_name = 'warehouses'
+
+
+class EmploymentView(ListView):
+    model = EmploymentPage
+    template_name = 'employment-page.html'
+    context_object_name = 'employment_fields'

@@ -46,7 +46,7 @@
         {% endif %}
         <li>
             <div class="iocn-link">
-                <a href="#">
+                <a href="{% url 'cooperation' %}">
                     <i class='bx bxs-business'></i>
                     <span class="link_name">Współpraca</span>
                 </a>
@@ -54,16 +54,19 @@
             </div>
             <ul class="sub-menu">
                 <li>
-                    <a class="link_name" href="#">Współpraca</a>
+                    <a class="link_name" href="{% url 'cooperation' %}">Współpraca</a>
                 </li>
                 <li>
-                    <a href="#">Paczkomat</a>
+                    <a href="{% url 'parcel-locker' %}">Paczkomat</a>
                 </li>
                 <li>
-                    <a href="#">Punkt pocztowy</a>
+                    <a href="{% url 'post-point' %}">Punkt pocztowy</a>
                 </li>
                 <li>
-                    <a href="#">Magazyn</a>
+                    <a href="{% url 'warehouse' %}">Magazyn</a>
+                </li>
+                <li>
+                    <a href="{% url 'employment_page' %}">Oferty pracy</a>
                 </li>
             </ul>
         </li>

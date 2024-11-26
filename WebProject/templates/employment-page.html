@@ -1,0 +1,36 @@
+{% extends 'index.html' %}
+{% load static %}
+
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Oferty pracy</title>
+</head>
+
+<body>
+{% block content %}
+<div class="center">
+    <div class="txt-style">
+        <h1 style="text-align: center;">{{ employment_fields.title }}</h1>
+        <div class="signup_link">
+            <h4>{{ employment_fields.description_1_subtitle }}</h4>
+            <p style="text-align: justify;">{{ employment_fields.description_1 }}</p>
+            <div><img src="{% static 'images/img.jpg' %}" style="max-width: 400px; float: center; margin-right: 10px;" alt="Logo"></div>
+            <br>
+            <h4>{{ employment_fields.description_2_subtitle }}</h4>
+            <p style="text-align: justify;">{{ employment_fields.description_2 }}</p>
+            <h4>{{ employment_fields.description_3_subtitle }}</h4>
+            <p style="text-align: justify;">{{ employment_fields.description_3 }}</p>
+            <h4>{{ employment_fields.description_4_subtitle }}</h4>
+            <div><img src="{% static 'images/img.jpg' %}" style="max-width: 400px; float: center; margin-right: 10px;" alt="Logo">
+                <p style="text-align: justify;">{{ employment_fields.description_4 }}</p>
+            </div>
+            <br>
+            <h4>{{ employment_fields.description_5_subtitle }}</h4>
+            <p style="text-align: justify;">{{ employment_fields.description_5 }}</p>
+        </div>
+    </div>
+</div>
+{% endblock %}
+</body>
+</html>
